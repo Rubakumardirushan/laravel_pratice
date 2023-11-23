@@ -24,4 +24,21 @@ Route::get('/diru/{id}/{name?}',function($id,$name){
 return $id.$name;
 });
 
-// route naming 
+// route naming
+Route::get('/page/{id}',function($id){
+if($id>5){
+    return redirect()->route('index');
+}else{
+    return redirect()->route('home');
+}
+});
+
+Route::get('/index/dirushan',function(){
+return " index";
+}
+)->name('index');
+
+Route::get('/index/csk',function(){
+    return " home";
+    }
+    )->name('home');
