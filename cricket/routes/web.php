@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\basic;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +42,19 @@ Route::get('/index/csk',function(){
     return " home";
     }
     )->name('home');
+// route groups
+Route::group(['prefix'=>'gallery'],function(){
+    Route::get('/video',function(){
+return '<h1> videos</h1>';
+    });
+
+    Route::get('/photo',function(){
+        return '<h1> photos</h1>';
+            });
+});
+
+
+
+
+//controller
+Route::get('/basic',[basic::class,'index']);
