@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\basic;
+use App\Http\Controllers\EmployerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +18,7 @@ use App\Http\Controllers\basic;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test',function(){
-return Config::get('app.env');
-});
+
 
 Route::get('/diru/{id}/{name?}',function($id,$name){
 return $id.$name;
@@ -58,3 +58,7 @@ return '<h1> videos</h1>';
 
 //controller
 Route::get('/basic',[basic::class,'index']);
+
+Route::get('/index',[EmployerController::class,'index']);
+Route::get('/create',[EmployerController::class,'create']);
+
